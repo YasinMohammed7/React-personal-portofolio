@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { BiDownload } from "react-icons/bi";
 import { VscMail } from "react-icons/vsc";
 import { BsTelephone } from "react-icons/bs";
-import { IoIosArrowDown } from "react-icons/io";
 import { AiOutlineLinkedin } from "react-icons/ai";
 import { FiGithub } from "react-icons/fi";
 import "./footer.scss";
@@ -13,6 +12,8 @@ const Footer = ({ width }) => {
     keepConnected: false,
     contactInfo: false,
   });
+
+  const year = new Date().getFullYear();
 
   const handleClick = (listName) => {
     setOpen({
@@ -79,7 +80,9 @@ const Footer = ({ width }) => {
           items={footerLists.secondList}
         />
       </footer>
-      <p className="copyright">&copy; All Rights Reserved. Created by me</p>
+      <p className="copyright">
+        &copy; {year} All Rights Reserved. Created by me
+      </p>
     </>
   );
 };

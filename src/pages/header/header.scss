@@ -6,6 +6,21 @@ nav {
     height: 80px;
     margin: 0 auto;
 
+    .logo {
+        background-color: white;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: grid;
+        place-content: center;
+
+        a {
+            h2 {
+                color: black;
+            }
+        }
+    }
+
     .hamburger {
         display: none;
     }
@@ -27,6 +42,11 @@ nav {
             font-size: 30px;
             cursor: pointer;
             z-index: 999;
+
+            button {
+                background-color: unset;
+                font-size: 1.5rem;
+            }
         }
 
         .menu {

@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router";
-import Header from "./pages/header/Header";
 import Home from "./pages/home/Home";
 import { useEffect, useState } from "react";
-import Footer from "./pages/footer/Footer";
 import useWindowSize from "./hooks/useWindowSize";
+import Layout from "./components/Layout";
+import About from "./pages/about/About";
 
 const App = () => {
   const [yearsOfExperience, setYearsOfExperience] = useState(0);
@@ -29,16 +29,12 @@ const App = () => {
   }, []);
 
   return (
-    <>
-      <Header width={width} />
-      <Routes>
-        <Route
-          path="/"
-          element={<Home yearsOfExperience={yearsOfExperience} />}
-        />
-      </Routes>
-      <Footer width={width} />
-    </>
+    <Routes>
+      <Route path="/" element={<Layout width={width} />}>
+        <Route index element={<Home yearsOfExperience={yearsOfExperience} />} />
+        <Route path="about" element={<About />} />
+      </Route>
+    </Routes>
   );
 };
 

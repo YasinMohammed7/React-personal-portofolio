@@ -2,37 +2,52 @@ import React, { useState } from "react";
 import "./header.scss";
 import { Link } from "react-router-dom";
 import { BiMenu, BiX } from "react-icons/bi";
-import { motion } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 
-const Header = ({ width }) => {
-  const navItems = [
-    {
-      id: 1,
-      path: "/",
-      text: "Home",
-    },
-    {
-      id: 2,
-      path: "/about",
-      text: "About",
-    },
-    {
-      id: 3,
-      path: "/projects",
-      text: "Projects",
-    },
-    {
-      id: 4,
-      path: "/contact",
-      text: "Contact",
-    },
-  ];
+const navItems = [
+  {
+    id: 1,
+    path: "/",
+    text: "Home",
+  },
+  {
+    id: 2,
+    path: "/about",
+    text: "About",
+  },
+  {
+    id: 3,
+    path: "/projects",
+    text: "Projects",
+  },
+  {
+    id: 4,
+    path: "/contact",
+    text: "Contact",
+  },
+];
 
+const Header = ({ width }) => {
   const [open, setOpen] = useState(false);
+  const [scope, animate] = useAnimate();
 
   const handleClick = () => {
-    setOpen(!open);
+    setOpen((prev) => !prev);
+
+    animate([
+      [
+        "path.top",
+        { d: open ? "M 3 16.5 L 17 2.5" : "M 2 2.5 L 20 2.5" },
+        { at: "<" },
+      ],
+      ["path.middle", { opacity: open ? 0 : 1 }, { at: "<" }],
+      [
+        "path.bottom",
+        { d: open ? "M 3 2.5 L 17 16.346" : "M 2 16.346 L 20 16.346" },
+        { at: "<" },
+      ],
+    ]);
   };
 
   return (
@@ -64,7 +79,7 @@ const Header = ({ width }) => {
                 key={id}
                 className="menu-item"
               >
-                <Link to={path}>
+                <Link to={path} aria-label={`Go to ${text}`}>
                   <h5>{text}</h5>
                 </Link>
               </motion.li>
@@ -74,7 +89,7 @@ const Header = ({ width }) => {
           <ul className="menu">
             {navItems.map(({ path, id, text }) => (
               <li key={id} className="menu-item">
-                <Link to={path}>
+                <Link to={path} aria-label={`Go to ${text}`}>
                   <h5>{text}</h5>
                 </Link>
               </li>
@@ -82,15 +97,45 @@ const Header = ({ width }) => {
           </ul>
         ) : null}
       </AnimatePresence>
-      <div className="hamburger">
-        {open ? (
-          <BiX onClick={handleClick} />
-        ) : (
-          <BiMenu onClick={handleClick} />
-        )}
+      <div ref={scope} className="hamburger">
+        <button className="button" onClick={handleClick}>
+          <svg width="23" height="18" viewBox="0 0 23 18">
+            <path
+              fill="transparent"
+              stroke="white"
+              strokeWidth="3"
+              strokeLinecap="round"
+              d="M 2 2.5 L 20 2.5"
+              className="top"
+            />
+            <path
+              fill="transparent"
+              stroke="white"
+              strokeWidth="3"
+              strokeLinecap="round"
+              d="M 2 9.423 L 20 9.423"
+              opacity="1"
+              className="middle"
+            />
+            <path
+              fill="transparent"
+              stroke="white"
+              strokeWidth="3"
+              strokeLinecap="round"
+              d="M 2 16.346 L 20 16.346"
+              className="bottom"
+            />
+          </svg>
+        </button>
       </div>
     </nav>
   );
 };
-
 export default Header;
+
+// {open ? (
+// ) : (
+//   <button className="button" onClick={handleClick}>
+//     <BiMenu />
+//   </button>
+// )}

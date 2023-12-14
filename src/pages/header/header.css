@@ -6,6 +6,17 @@ nav {
   height: 80px;
   margin: 0 auto;
 }
+nav .logo {
+  background-color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-content: center;
+}
+nav .logo a h2 {
+  color: black;
+}
 nav .hamburger {
   display: none;
 }
@@ -24,6 +35,10 @@ nav .menu {
     font-size: 30px;
     cursor: pointer;
     z-index: 999;
+  }
+  nav .hamburger button {
+    background-color: unset;
+    font-size: 1.5rem;
   }
   nav .menu {
     position: absolute;
