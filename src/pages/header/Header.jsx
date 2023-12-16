@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./header.scss";
 import { Link } from "react-router-dom";
 import { BiMenu, BiX } from "react-icons/bi";
@@ -34,7 +34,9 @@ const Header = ({ width }) => {
 
   const handleClick = () => {
     setOpen((prev) => !prev);
+  };
 
+  useEffect(() => {
     animate([
       [
         "path.top",
@@ -48,7 +50,7 @@ const Header = ({ width }) => {
         { at: "<" },
       ],
     ]);
-  };
+  }, [open]);
 
   return (
     <nav>

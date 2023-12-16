@@ -39,6 +39,9 @@ footer .ft-list ul li a svg {
     justify-content: space-between;
     align-items: center;
   }
+  footer .ft-list h3 div {
+    cursor: pointer;
+  }
 }
 
 .copyright {

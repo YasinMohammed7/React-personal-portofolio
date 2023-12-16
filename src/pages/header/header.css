@@ -36,9 +36,11 @@ nav .menu {
     cursor: pointer;
     z-index: 999;
   }
-  nav .hamburger button {
-    background-color: unset;
+  nav .hamburger .button {
     font-size: 1.5rem;
+  }
+  nav .hamburger .button:hover svg path {
+    stroke: black;
   }
   nav .menu {
     position: absolute;

@@ -43,9 +43,17 @@ nav {
             cursor: pointer;
             z-index: 999;
 
-            button {
-                background-color: unset;
+            .button {
+                // background-color: unset;
                 font-size: 1.5rem;
+
+                &:hover {
+                    svg {
+                        path {
+                            stroke: black;
+                        }
+                    }
+                }
             }
         }
 
