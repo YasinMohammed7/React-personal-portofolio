@@ -25,12 +25,20 @@ const About = () => {
       I am a front-end developer with a passion for creating engaging and user-friendly web experiences. Seeking a challenging position that allows me to utilize my expertise in frontend technologies and design principles to contribute to the development of innovative and visually appealing websites and applications. 
       One of my hobbies is to play football, it makes me creative and gives me motivation to practice coding for making progress."
       />
-      <div className={styles.experience} style={{ backgroundColor: "yellow" }}>
-        4
-      </div>
-      <div className={styles.education} style={{ backgroundColor: "orange" }}>
-        5
-      </div>
+      <Card cls={styles.experience} image={false} showIcon={false}>
+        <div>
+          <h2>Experience</h2>
+          <p>2023-2024</p>
+          <h3>Frontend-developer</h3>
+          <p>At Home</p>
+        </div>
+      </Card>
+      <Card cls={styles.education} image={false} showIcon={false}>
+        <h2>Education</h2>
+        <p>2016-2020</p>
+        <h3>Liceul Teoretic C.A Rosetti</h3>
+        <p>Bacalaureat Diploma</p>
+      </Card>
     </section>
   );
 };

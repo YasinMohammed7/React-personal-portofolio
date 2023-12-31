@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./header.scss";
 import { Link } from "react-router-dom";
-import { BiMenu, BiX } from "react-icons/bi";
 import { motion, useAnimate } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 
@@ -134,10 +133,3 @@ const Header = ({ width }) => {
   );
 };
 export default Header;
-
-// {open ? (
-// ) : (
-//   <button className="button" onClick={handleClick}>
-//     <BiMenu />
-//   </button>
-// )}
