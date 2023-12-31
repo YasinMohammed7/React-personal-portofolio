@@ -91,12 +91,11 @@ img {
 .card.column {
   flex-direction: column;
 }
-.card .image {
-  min-width: 200px;
-}
 .card .image img {
   width: 100%;
   height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .card .icon {
   position: absolute;

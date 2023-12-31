@@ -43,7 +43,7 @@ const Card = ({
     if (showInfo) {
       return (
         <div className="title">
-          <h4>{subtitle}</h4>
+          {subtitle && <h4>{subtitle}</h4>}
           {smallcard ? <h3>{title}</h3> : <h1>{title}</h1>}
           {desc ? <p>{desc}</p> : null}
         </div>
