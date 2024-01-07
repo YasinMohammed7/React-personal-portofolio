@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import useWindowSize from "./hooks/useWindowSize";
 import Layout from "./components/Layout";
 import About from "./pages/about/About";
+import Projects from "./pages/projects/Projects";
+import Contact from "./pages/contact/Contact";
 
 const App = () => {
   const [yearsOfExperience, setYearsOfExperience] = useState(0);
@@ -33,6 +35,9 @@ const App = () => {
       <Route path="/" element={<Layout width={width} />}>
         <Route index element={<Home yearsOfExperience={yearsOfExperience} />} />
         <Route path="about" element={<About />} />
+        <Route path="projects" element={<Projects />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="*" element={<h1>Page not found</h1>} />
       </Route>
     </Routes>
   );

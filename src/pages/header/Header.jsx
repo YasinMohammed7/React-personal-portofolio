@@ -3,6 +3,7 @@ import "./header.scss";
 import { Link } from "react-router-dom";
 import { motion, useAnimate } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
+import Hamburger from "../../components/Hamburger";
 
 const navItems = [
   {
@@ -29,31 +30,14 @@ const navItems = [
 
 const Header = ({ width }) => {
   const [open, setOpen] = useState(false);
-  const [scope, animate] = useAnimate();
 
   const handleClick = () => {
     setOpen((prev) => !prev);
   };
 
-  useEffect(() => {
-    animate([
-      [
-        "path.top",
-        { d: open ? "M 3 16.5 L 17 2.5" : "M 2 2.5 L 20 2.5" },
-        { at: "<" },
-      ],
-      ["path.middle", { opacity: open ? 0 : 1 }, { at: "<" }],
-      [
-        "path.bottom",
-        { d: open ? "M 3 2.5 L 17 16.346" : "M 2 16.346 L 20 16.346" },
-        { at: "<" },
-      ],
-    ]);
-  }, [open]);
-
   return (
     <nav>
-      <div className="logo">
+      <div className="logo" data-testid="logo">
         <Link to="/">
           <h2>YM</h2>
         </Link>
@@ -68,6 +52,7 @@ const Header = ({ width }) => {
               duration: 0.3,
             }}
             className="menu"
+            data-testid="menu"
           >
             {navItems.map(({ path, id, text }) => (
               <motion.li
@@ -98,37 +83,7 @@ const Header = ({ width }) => {
           </ul>
         ) : null}
       </AnimatePresence>
-      <div ref={scope} className="hamburger">
-        <button className="button" onClick={handleClick}>
-          <svg width="23" height="18" viewBox="0 0 23 18">
-            <path
-              fill="transparent"
-              stroke="white"
-              strokeWidth="3"
-              strokeLinecap="round"
-              d="M 2 2.5 L 20 2.5"
-              className="top"
-            />
-            <path
-              fill="transparent"
-              stroke="white"
-              strokeWidth="3"
-              strokeLinecap="round"
-              d="M 2 9.423 L 20 9.423"
-              opacity="1"
-              className="middle"
-            />
-            <path
-              fill="transparent"
-              stroke="white"
-              strokeWidth="3"
-              strokeLinecap="round"
-              d="M 2 16.346 L 20 16.346"
-              className="bottom"
-            />
-          </svg>
-        </button>
-      </div>
+      {width < 600 && <Hamburger open={open} handleClick={handleClick} />}
     </nav>
   );
 };
