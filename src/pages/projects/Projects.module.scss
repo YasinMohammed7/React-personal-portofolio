@@ -1,0 +1,50 @@
+.section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem 4rem;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem 6rem 4rem 6rem;
+
+    h1 {
+        grid-column: 1/-1;
+        text-align: center;
+    }
+
+    a {
+        padding-bottom: 0;
+
+        .projectImg {
+            height: auto;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        p {
+            font-size: 1rem;
+            padding: 2rem 0.5rem;
+
+            .code {
+                transition: color .3s;
+            }
+        }
+
+    }
+
+    a:hover {
+        p {
+            .code {
+                color: white;
+            }
+        }
+    }
+
+
+    @media (max-width: 600px) {
+        padding: 1.5rem;
+        grid-template-columns: 1fr;
+
+
+    }
+}

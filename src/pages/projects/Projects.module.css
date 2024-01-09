@@ -1,0 +1,38 @@
+.section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem 4rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 6rem 4rem 6rem;
+}
+.section h1 {
+  grid-column: 1/-1;
+  text-align: center;
+}
+.section a {
+  padding-bottom: 0;
+}
+.section a .projectImg {
+  height: auto;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.section a p {
+  font-size: 1rem;
+  padding: 2rem 0.5rem;
+}
+.section a p .code {
+  transition: color 0.3s;
+}
+.section a:hover p .code {
+  color: white;
+}
+@media (max-width: 600px) {
+  .section {
+    padding: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+}/*# sourceMappingURL=Projects.module.css.map */

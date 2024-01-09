@@ -5,6 +5,7 @@ import "./home.scss";
 import aboutImg from "../../assets/aboutMeImg.jpg";
 import PortfolioImg from "../../assets/projectImg.png";
 import icon2 from "../../assets/icon2.png";
+import { projects } from "../projects/Projects";
 
 const Home = ({ yearsOfExperience }) => {
   const node = {
@@ -21,7 +22,7 @@ const Home = ({ yearsOfExperience }) => {
         num: yearsOfExperience,
         text: `${yearsOfExperience === 1 ? "Year" : "Years"} of experience`,
       },
-      { num: 3, text: "Projects" },
+      { num: projects.length, text: "Projects" },
     ],
   };
 

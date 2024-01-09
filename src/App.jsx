@@ -13,7 +13,7 @@ const App = () => {
 
   useEffect(() => {
     const calculateExperience = () => {
-      const startDate = new Date("12-01-2022");
+      const startDate = new Date("01-01-2023");
       const currentYear = new Date().getFullYear();
       const startYear = startDate.getFullYear();
       const years = currentYear - startYear;
