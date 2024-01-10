@@ -14,21 +14,20 @@
 .section a {
   padding-bottom: 0;
 }
-.section a .projectImg {
-  height: auto;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
 .section a p {
   font-size: 1rem;
   padding: 2rem 0.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
-.section a p .code {
-  transition: color 0.3s;
-}
-.section a:hover p .code {
-  color: white;
+.section a p .button1 {
+  font-size: 12px;
+  width: 60px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 @media (max-width: 600px) {
   .section {

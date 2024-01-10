@@ -15,36 +15,27 @@
     a {
         padding-bottom: 0;
 
-        .projectImg {
-            height: auto;
-            width: 100%;
-            object-fit: cover;
-        }
-
         p {
             font-size: 1rem;
             padding: 2rem 0.5rem;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
 
-            .code {
-                transition: color .3s;
+            .button1 {
+                font-size: 12px;
+                width: 60px;
+                padding: 5px 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
             }
         }
 
     }
-
-    a:hover {
-        p {
-            .code {
-                color: white;
-            }
-        }
-    }
-
 
     @media (max-width: 600px) {
         padding: 1.5rem;
         grid-template-columns: 1fr;
-
-
     }
 }

@@ -1,10 +1,8 @@
 import React from "react";
 import { IoIosArrowDown } from "react-icons/io";
-import { AnimatePresence, easeIn, motion, stagger } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const FooterList = ({ width, title, handleClick, isOpen, items }) => {
-  const staggerMenuItems = stagger(1.2, { from: easeIn });
-
   return (
     <div className="ft-list">
       <h3>

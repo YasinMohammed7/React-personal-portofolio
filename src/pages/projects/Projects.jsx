@@ -35,8 +35,8 @@ const Projects = () => {
           title={title}
           img={img}
           path={path}
-          imgStyle={styles.projectImg}
           spanStyle={styles.code}
+          buttonStyle={styles.button1}
         />
       ))}
     </section>
