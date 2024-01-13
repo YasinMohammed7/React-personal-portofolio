@@ -43,11 +43,11 @@ const Header = ({ width }) => {
         </Link>
       </div>
       <AnimatePresence>
-        {open ? (
+        {(open || width > 600) && (
           <motion.ul
-            initial={{ scaleY: 0 }}
-            animate={{ scaleY: 1 }}
-            exit={{ scaleY: 0 }}
+            initial={width > 600 ? {} : { scaleY: 0 }}
+            animate={width > 600 ? {} : { scaleY: 1 }}
+            exit={width > 600 ? {} : { scaleY: 0 }}
             transition={{
               duration: 0.3,
             }}
@@ -56,8 +56,12 @@ const Header = ({ width }) => {
           >
             {navItems.map(({ path, id, text }) => (
               <motion.li
-                initial={{ opacity: 0, y: 70, filter: "blur(20px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                initial={
+                  width > 600 ? {} : { opacity: 0, y: 70, filter: "blur(20px)" }
+                }
+                animate={
+                  width > 600 ? {} : { opacity: 1, y: 0, filter: "blur(0px)" }
+                }
                 transition={{
                   duration: 0.6,
                   delay: 0.2,
@@ -71,17 +75,7 @@ const Header = ({ width }) => {
               </motion.li>
             ))}
           </motion.ul>
-        ) : width > 600 ? (
-          <ul className="menu">
-            {navItems.map(({ path, id, text }) => (
-              <li key={id} className="menu-item">
-                <Link to={path} aria-label={`Go to ${text}`}>
-                  <h5>{text}</h5>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        ) : null}
+        )}
       </AnimatePresence>
       {width < 600 && <Hamburger open={open} handleClick={handleClick} />}
     </nav>

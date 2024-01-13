@@ -10,34 +10,30 @@ export const projects = [
     id: 1,
     title: "Todo List",
     img: todoImg,
-    path: "https://stunning-lamington-05f71d.netlify.app/",
+    projectPath: "https://stunning-lamington-05f71d.netlify.app/",
+    codePath: "https://github.com/YasinMohammed7/React-todo-list",
   },
   {
     id: 2,
     title: "Roman Converter",
     img: converterImg,
-    path: "https://taupe-sorbet-9b0d3c.netlify.app/",
+    projectPath: "https://taupe-sorbet-9b0d3c.netlify.app/",
+    codePath: "https://github.com/YasinMohammed7/React-roman-converter",
   },
   {
     id: 3,
     title: "Blog",
     img: blogImg,
-    path: "https://magnificent-pika-e1ba95.netlify.app/",
+    projectPath: "https://magnificent-pika-e1ba95.netlify.app/",
+    codePath: "https://github.com/YasinMohammed7/React-Blog",
   },
 ];
 const Projects = () => {
   return (
     <section className={styles.section} data-testid="section">
       <h1>My projects</h1>
-      {projects.map(({ id, title, img, path }) => (
-        <Project
-          key={id}
-          title={title}
-          img={img}
-          path={path}
-          spanStyle={styles.code}
-          buttonStyle={styles.button1}
-        />
+      {projects.map((project) => (
+        <Project key={project.id} {...project} spanStyle={styles.code} />
       ))}
     </section>
   );

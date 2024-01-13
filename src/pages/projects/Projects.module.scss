@@ -1,7 +1,7 @@
 .section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem 4rem;
+    gap: 4rem;
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
@@ -12,23 +12,20 @@
         text-align: center;
     }
 
-    a {
+    figure {
         padding-bottom: 0;
 
-        p {
+        figcaption {
             font-size: 1rem;
-            padding: 2rem 0.5rem;
-            width: 100%;
+            padding: 0.7rem 0.5rem;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            width: 100%;
 
-            .button1 {
+            a {
                 font-size: 12px;
-                width: 60px;
                 padding: 5px 10px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
             }
         }
 
